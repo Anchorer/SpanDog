@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), TouchableSpanClickListener  {
         textView.text = spannableString
     }
 
-    override fun onClick(view: View?, data: Any?) {
+    override fun onClick(view: View, data: Any?) {
         Toast.makeText(this, "Touchable Span Click: Data=" + data, Toast.LENGTH_SHORT).show()
     }
 
