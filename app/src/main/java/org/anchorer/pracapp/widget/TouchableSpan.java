@@ -14,7 +14,8 @@ public class TouchableSpan extends ClickableSpan {
     private int mNormalBgColor;
     private int mPressedBgColor;
 
-    private View.OnClickListener mClickListener;
+    private Object data;
+    private TouchableSpanClickListener mClickListener;
 
     public TouchableSpan(int normalTextColor, int normalBgColor, int pressedBgColor) {
         this.mTextColor = normalTextColor;
@@ -22,7 +23,7 @@ public class TouchableSpan extends ClickableSpan {
         this.mPressedBgColor = pressedBgColor;
     }
 
-    public void setOnClickListener(View.OnClickListener listener) {
+    public void setOnClickListener(TouchableSpanClickListener listener) {
         this.mClickListener = listener;
     }
 
@@ -30,10 +31,18 @@ public class TouchableSpan extends ClickableSpan {
         this.mIsPressed = mIsPressed;
     }
 
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
     @Override
-    public void onClick(View widget) {
+    public void onClick(View view) {
         if (mClickListener != null) {
-            mClickListener.onClick(widget);
+            mClickListener.onClick(view, data);
         }
     }
 

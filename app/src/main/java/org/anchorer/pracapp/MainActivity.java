@@ -9,9 +9,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import org.anchorer.pracapp.widget.TouchableSpan;
+import org.anchorer.pracapp.widget.TouchableSpanClickListener;
 import org.anchorer.pracapp.widget.TouchableTextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements TouchableSpanClickListener {
 
     private static final String SPANNABLE_TOTAL = "Hello World!!";
     private static final String SPANNABLE = "Hello";
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         TouchableSpan touchableSpan = new TouchableSpan(ContextCompat.getColor(this, R.color.orange_1),
                 ContextCompat.getColor(this, android.R.color.transparent), ContextCompat.getColor(this, R.color.gray_1));
+        touchableSpan.setData(SPANNABLE);
         touchableSpan.setOnClickListener(this);
         SpannableString spannableString = new SpannableString(SPANNABLE_TOTAL);
         int index = SPANNABLE_TOTAL.indexOf(SPANNABLE);
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {
-        Toast.makeText(this, "Touchable Span Click: " + v.getId(), Toast.LENGTH_SHORT).show();
+    public void onClick(View view, Object data) {
+        Toast.makeText(this, "Touchable Span Click: " + view.getId() + ", Data: " + data, Toast.LENGTH_SHORT).show();
     }
 }
