@@ -1,4 +1,4 @@
-package org.anchorer.pracapp.widget;
+package org.anchorer.spandog.widget;
 
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
@@ -15,7 +15,7 @@ public class TouchableSpan extends ClickableSpan {
     private int mPressedBgColor;
 
     private Object data;
-    private TouchableSpanClickListener mClickListener;
+    private TouchableSpanClickListener clickListener;
 
     public TouchableSpan(int normalTextColor, int normalBgColor, int pressedBgColor) {
         this.mTextColor = normalTextColor;
@@ -23,8 +23,12 @@ public class TouchableSpan extends ClickableSpan {
         this.mPressedBgColor = pressedBgColor;
     }
 
-    public void setOnClickListener(TouchableSpanClickListener listener) {
-        this.mClickListener = listener;
+    public void setClickListener(TouchableSpanClickListener mClickListener) {
+        this.clickListener = mClickListener;
+    }
+
+    public TouchableSpanClickListener getClickListener() {
+        return clickListener;
     }
 
     public void setPressed(boolean mIsPressed) {
@@ -41,8 +45,8 @@ public class TouchableSpan extends ClickableSpan {
 
     @Override
     public void onClick(View view) {
-        if (mClickListener != null) {
-            mClickListener.onClick(view, data);
+        if (clickListener != null) {
+            clickListener.onClick(view, data);
         }
     }
 

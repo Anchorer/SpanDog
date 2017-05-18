@@ -1,4 +1,4 @@
-package org.anchorer.pracapp;
+package org.anchorer.spandog;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

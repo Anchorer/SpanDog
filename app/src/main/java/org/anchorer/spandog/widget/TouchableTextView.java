@@ -1,4 +1,4 @@
-package org.anchorer.pracapp.widget;
+package org.anchorer.spandog.widget;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
