@@ -29,11 +29,11 @@ class TouchableSpan : ClickableSpan {
         clickListener?.onClick(widget, data)
     }
 
-    override fun updateDrawState(ds: TextPaint?) {
+    override fun updateDrawState(ds: TextPaint) {
         super.updateDrawState(ds)
-        ds?.color = textColor
-        ds?.bgColor = if (isPressed) pressedBgColor else normalBgColor
-        ds?.isUnderlineText = false
+        ds.color = textColor
+        ds.bgColor = if (isPressed) pressedBgColor else normalBgColor
+        ds.isUnderlineText = false
     }
 
 }

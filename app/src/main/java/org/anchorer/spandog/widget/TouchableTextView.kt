@@ -39,7 +39,7 @@ class TouchableTextView : AppCompatTextView {
             if (action == MotionEvent.ACTION_DOWN) {
                 mPressedSpan = getPressedSpan(textView, spannable, event)
                 if (mPressedSpan != null) {
-                    mPressedSpan!!.isPressed = true
+                    mPressedSpan?.isPressed = true
                     Selection.setSelection(spannable, spannable.getSpanStart(mPressedSpan), spannable.getSpanEnd(mPressedSpan))
                 }
             } else if (action == MotionEvent.ACTION_MOVE) {
